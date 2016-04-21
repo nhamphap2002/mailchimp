@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="assets/js/source/jquery.fancybox.css" type="text/css" rel="stylesheet"/>
+        <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="assets/js/source/jquery.fancybox.js"></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                $(".various").fancybox({
+                    type: 'ajax',
+                    maxWidth: 800,
+                    maxHeight: 600,
+                    fitToView: false,
+                    width: 400,
+                    height: 400,
+                    openEffect: 'elastic',
+                    closeEffect: 'none',
+                    closeBtn: true,
+                    minWidth: 400,
+                    minHeight: 400,
+                    beforeLoad: function () {
+                        //$('script').remove();
+                    },
+                    beforeClose: function () {
+                        //$('script, #_atssh, #at20mc').remove();
+                    },
+                    afterShow: function () {
+                        var tvcheckbuttonload = setInterval(function () {
+                            var classpinterest = jQuery('.quickview-main').find('.addthis_toolbox a:nth-child(3)').attr('class');
+                            if (typeof classpinterest != 'undefined') {
+                                jQuery('.button.btn-cart.btn-quote.hide').prependTo(jQuery('#product-options-wrapper'))
+                                classpinterest = classpinterest.replace('_16_', '_32_');
+                                jQuery('.addthis_toolbox a:nth-child(3)').attr('class', classpinterest);
+                                jQuery('.quickview-main').find('.addthis_button_google_plusone_badge > span > span').remove();
+                                clearInterval(tvcheckbuttonload);
+                            }
+                        }, 100);
+                        var tvcheckbuttonload2 = setInterval(function () {
+                            if (typeof jQuery('.quickview-main').find('.addthis_button_google_plusone_badge > span > span')[0] == 'object') {
+                                jQuery('.quickview-main').find('.addthis_button_google_plusone_badge > span > span').remove();
+                                clearInterval(tvcheckbuttonload2);
+                            }
+                        }, 100);
+
+                        if (window.addthis) {
+                            addthis.toolbox('.addthis_toolbox');
+                        }
+                        // facebook
+                        try {
+                            FB.XFBML.parse();
+                        } catch (ex) {
+                        }
+                    }
+                });
+            })
+        </script>
+    </head>
+    <body>
+        <a href="iframe.html" class="various">Social</a>
+        <a id="tvprinterest" class="" href="//www.pinterest.com/pin/create/button/?url=https://www.pinterest.com/customgearcomau/&media=https://customgear.com.au/blog/wp-content/uploads/2014/04/cgblog-logo.png&description=Tag%20Custom%20Gear%20on%20Pinterest" data-pin-do="buttonPin" data-pin-shape="round"  data-pin-height="32"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_round_red_32.png" /></a>
+        <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
+        Trebuchet MS,Tahoma,Verdana,Arial,sans-serif
+        Arial,Helvetica,sans-serif
+        "Segoe UI",Arial,Helvetica,sans-serif
+    </body>
+</html>

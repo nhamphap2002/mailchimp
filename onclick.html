@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="assets/js/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript">
+            function tvload(evt) {
+                (function ($) {
+                    console.log($(evt).attr('com_id'));
+                })(jQuery)
+                console.log(evt)
+            }
+        </script>
+    </head>
+    <body>
+        <div onclick="tvload(this)" com_id="10" pos="pri">TODO write content</div>
+        <a href="http://google.com" onclick="tvload(this); return false;" com_id="10" pos="pri">Thu ty</a>
+    </body>
+</html>

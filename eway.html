@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js"></script>
+    </head>
+    <body>
+        <div class="sfContentBlock container"><h3>Get the Code</h3> <p>Enter your company name, or eWAY customer Id.</p> <label>
+                Company / Customer Id: <input type="text" id="customerId" name="customerId"> </label> <input type="button" onclick="javascript: showCode();" value="Generate HTML">
+
+
+        </div>
+        <script type="text/javascript">// Template for the site seal linking code.
+            var codeTemplateHTML = '<pre>&lt;!-- Begin eWAY Linking Code --&gt;\n&lt;div id="eWAYBlock"&gt;\n    &lt;div style="text-align:center;"&gt;\n        &lt;a href="https://{siteurl}/secure-site-seal?i={0}&amp;s={1}&amp;pid={pid1}&amp;theme={theme1}" title="eWAY Payment Gateway" target="_blank" rel="nofollow"&gt;\n            &lt;img alt="eWAY Payment Gateway" src="https://{imgsrc}/developer/payment-code/verified-seal.ashx?img={2}&amp;size={3}&amp;pid={pid2}&amp;theme={theme2}" /&gt;\n        &lt;/a&gt;\n    &lt;/div&gt;\n&lt;/div&gt;\n&lt;!-- End eWAY Linking Code --&gt;\n</pre>';
+// Unique Id for this site seal request.
+            var siteSealId = '';
+// The domain that should be linked to when the site seal is clicked.
+            var siteUrl = 'www.eway.com.au/';
+// The domain that the image will be generated from.
+            var siteSealImgSrc = 'www.eway.com.au';
+
+// Reads the user settings for the site seal.
+            (function () {
+                var ssPageUrl = 'https://{0}/secure-site-seal?i={1}&s={2}&pid={3}&theme={4}';
+                var ssImageUrl = 'https://{0}/developer/payment-code/verified-seal.ashx?img={1}&size={2}&pid={3}&theme={4}';
+
+                function setPreviewPanel() {
+                    $("#code").html(codeTemplateHTML.replace('{0}', '11').replace('{1}', '3').replace('{2}', '11').replace('{3}', '3').replace('{pid1}', siteSealId).replace('{pid2}', siteSealId).replace('{siteurl}', siteUrl).replace('{imgsrc}', siteSealImgSrc).replace('{theme1}', '0').replace('{theme2}', '0')); // Set  site seal html.
+                    $('#previewPage').prop('href', ssPageUrl.replace('{0}', siteUrl).replace('{1}', '3').replace('{2}', '11').replace('{3}', siteSealId).replace('{4}', '0')); // Update the link of the preview seal.
+                }
+
+                // Get the unique Id for this site seal.
+                $.ajax({
+                    url: 'https://www.eway.com.auapi/siteseal',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        siteSealId = data;
+                        setPreviewPanel();
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+
+                $.ajax({
+                    url: 'https://www.eway.com.au/api/whoami?clientUrl=' + encodeURIComponent(window.location.href),
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        siteUrl = data.siteUrl;
+                        if (data.country !== 'au') {
+                            siteSealImgSrc = 'eway.io'; // If the host country isn't Australia, then the image source is eway.io.
+                        }
+                        setPreviewPanel();
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+
+                // Remove validation errors on click, 
+                $('#customerId').click(function () {
+                    $('#customerId').removeAttr('style');
+                });
+
+                // Changes the preview to the new vlaues.
+                function updatePreview() {
+                    var ssImg = 0;
+                    var ssSize = 0;
+                    var ssTheme = 0;
+
+                    $('input[type=radio]').each(function (i, e) {
+                        if ($(e).prop('checked')) {
+                            ssImg = ($(e).prop('value') | 0);
+                            ssTheme = ($(e).data('theme') | 0);
+                        }
+                    });
+
+                    $('input[type=checkbox]').each(function (i, e) {
+                        if ($(e).prop('checked')) {
+                            ssSize += ($(e).prop('value') | 0);
+                        }
+                    });
+
+                    $('#previewPage').prop('href', ssPageUrl.replace('{0}', siteUrl).replace('{1}', ssImg.toString()).replace('{2}', ssSize.toString()).replace('{3}', siteSealId).replace('{4}', ssTheme));
+                    $('#previewImage').prop('src', ssImageUrl.replace('{0}', siteSealImgSrc).replace('{1}', ssImg.toString()).replace('{2}', ssSize.toString()).replace('{3}', siteSealId).replace('{4}', ssTheme));
+                    $("#code").html(codeTemplateHTML.replace('{0}', ssImg.toString()).replace('{1}', ssSize.toString()).replace('{2}', ssImg.toString()).replace('{3}', ssSize.toString()).replace('{pid1}', siteSealId).replace('{pid2}', siteSealId).replace('{theme1}', ssTheme).replace('{theme2}', ssTheme).replace('{siteurl}', siteUrl).replace('{imgsrc}', siteSealImgSrc));
+                }
+
+                // Removes any previously checked buttons, and updates the preview.
+                $(function () {
+                    // Site seals
+                    $('input[type=radio]').click(function () {
+                        $('input[type=radio]').each(function (i, e) {
+                            $(e).prop('checked', false);
+                        });
+                        $(this).prop('checked', true);
+                        updatePreview();
+                    });
+
+                    // Card logos.
+                    $('input[type=checkbox]').click(function () {
+                        updatePreview();
+                    });
+                });
+            })();
+
+// Sends the siteseal data to the server.
+            function sendSiteSealRequest() {
+                var siteSealRequest = JSON.stringify({
+                    cards: (function (cards) {
+                        var c = 0;
+                        for (var i = 0; i < cards.length; i++) {
+                            c += ($(cards[i]).val() | 0);
+                        }
+                        return c;
+                    })($('input[type=checkbox]:checked')).toString(),
+                    image: $('input[type=radio][checked=checked]:first').val(),
+                    customerId: $('#customerId').val(),
+                    pid: siteSealId
+                });
+
+                $.ajax({
+                    url: 'https://www.eway.com.au/api/siteseal',
+                    type: 'POST',
+                    data: siteSealRequest,
+                    contentType: 'application/json',
+                    success: function (data) {
+                        console.log('Site seal request successfully received.');
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            }
+
+// Generates the siteseal html
+            function showCode() {
+                if ($('#customerId').val()) {
+                    $("#code").removeAttr('style');
+                    sendSiteSealRequest();
+                }
+                else {
+                    $('#customerId').attr('style', 'background-color: red;');
+                }
+
+                return false;
+            }</script>
+        <!-- Begin eWAY Linking Code -->
+<div id="eWAYBlock">
+    <div style="text-align:center;">
+        <a href="https://www.eway.com.au/secure-site-seal?i=11&s=3&pid=066a9ca8-7f30-4f5e-beb6-925634669973&theme=0" title="eWAY Payment Gateway" target="_blank" rel="nofollow">
+            <img alt="eWAY Payment Gateway" src="https://www.eway.com.au/developer/payment-code/verified-seal.ashx?img=11&size=3&pid=066a9ca8-7f30-4f5e-beb6-925634669973&theme=0" />
+        </a>
+    </div>
+</div>
+<!-- End eWAY Linking Code -->
+    </body>
+</html>

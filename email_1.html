@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            body{
+                max-width: 768px;
+                margin: 0 auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div style="background: #F1F6EC; padding: 10px;">
+            <table width="650" border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0; float: right;">
+                <tr>
+                    <td style="border: 1px solid #ccc; background: #fff">
+                        <table width="100%" style="border-spacing: 0;">
+                            <tr>
+                                <td style="border-bottom: 1px solid #ccc;padding: 10px 0 10px 30px;" width="55%">
+                                    <a href="http://www.yourchemistshop.com.au/">
+                                        <img src="http://staging.yourchemistshop.com.au/media/wysiwyg/index.png" alt="Your Chemist Shop"/>
+                                    </a>
+                                    <br/>
+                                    <br/>
+                                </td>
+                                <td style="border-bottom: 1px solid #ccc; padding-top: 10px;" align="center">
+                                    <div style="color: #ccc;">
+                                        You are subscribed  as
+                                    </div>
+                                    <div style="color: #ccc;">
+                                        <a href="mailto:aihna.zeki@homail.com" title="Gửi email tới Dân Trí" rel="nofollow" style="color: #ccc;">aihna.zeki@homail.com.</a>
+                                    </div>
+                                    <div style="color: #ccc;">
+                                        <a href="" style="color: #ccc;">View online version</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.yourchemistshop.com.au/customer/account" style="color: #ccc;">Update Details</a>
+                                    </div>
+                                    <br/>
+                                    <br/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="padding: 10px 0 10px 30px;">
+                                    <a href="http://www.yourchemistshop.com.au/" style="color: #666; text-transform: uppercase; text-decoration: none; font-size: 14px;">Visit our website</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.yourchemistshop.com.au/about-us/" style="color: #666; text-transform: uppercase; text-decoration: none; font-size: 14px;">About Us</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.yourchemistshop.com.au/contactus/" style="color: #666; text-transform: uppercase; text-decoration: none; font-size: 14px;">Contact Us</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ccc; padding: 15px; background: #fff">
+                        <div style="color: #666;">Hello  {{var customer_name}}!</div>
+                        <div style="color: #666; padding: 15px 0;">Your <a href="http://www.yourchemistshop.com.au/checkout/cart/">shopping cart</a> at Your Chemist Shop has been reserved and is waiting for your return!</div>
+                        <div style="color: #666;">In your cart you have left</div>
+                        <br/>
+                        <table width="100%" style="border-spacing: 0;">
+                            <tr>
+                                <th width="20%" align="left" style="background: #EAEAEA; padding: 5px;">Image</th>
+                                <th width="50%" align="left" style="background: #EAEAEA; padding: 5px;">Item</th>
+                                <th width="10%" align="left" style="background: #EAEAEA; padding: 5px;">SKU</th>
+                                <th width="10%" align="left" style="background: #EAEAEA; padding: 5px;">Quantily</th>
+                                <th width="10%" align="left" style="background: #EAEAEA; padding: 5px;">Subtotal</th>
+                            </tr>
+                            {{foreach var="$quote.getAllVisibleItems()" template="nsltr:AW Abandoned cart row"}}
+                            <!--                        <tr>
+                                                        <td style="border-left: 1px solid #ccc; text-align: center"><img src="{{thumbnail size="75" source="row_item.product"}}"/></td>
+                                                        <td><a href="{{store url="catalog/product/view" id="$row_item.product.id"}}">{{var row_item.name}}</a></td>
+                                                        <td>{{var row_item.sku}}</td>
+                                                        <td style="text-align: center">{{var row_item.qty|formatDecimal}}</td>
+                                                        <td style="border-right: 1px solid #ccc;">Inct. Tax: {{var row_item.row_totalInclTax|formatPrice}}</td>
+                                                    </tr>-->
+                            <tr>
+                                <td colspan="5" style="border: 1px solid #ccc; border-top: none;">&nbsp;</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ccc; padding: 0; background: #fff">
+                        <table width="100%" style="border-spacing: 0;">
+                            <tr>
+                                <td colspan="2">
+                                    <div style="background: #004b96; height: 5px; max-height: 5px; width: 100%;">&nbsp;</div>
+                                    <div style="background: #308f44; height: 5px; max-height: 5px; width: 100%; margin-top: 2px">&nbsp;</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 30px">
+                                    <img src="images/logo_print.gif"/>
+                                </td>
+                                <td>
+                                    <div style="color: #3D6EB3; font-weight: bold;text-transform: uppercase;">
+                                        Phone 1300 308 143
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <div style="clear: both;">&nbsp;</div>
+        </div>
+    </body>
+</html>

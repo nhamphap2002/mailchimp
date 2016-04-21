@@ -1,0 +1,61 @@
+sydneyecommerce@gmail.comshopchanh37@gmail.com
+<h1>Dear {{var customer_name}}!</h1>
+
+<p>On {{var quote.updated_at|formatDateTime:long}} you left a cart in our shop with the following content:</p>
+
+<table width=100% border=1 cellspacing=1 cellpadding=5>
+    <tr>
+        <th>No</th>
+        <th>Product</th>
+        <th>Image</th>
+        <th>Description</th>
+        <th>SKU</th>
+        <th>Price</th>
+        <th>Qty</th>
+        <th>Row Total</th>
+    </tr>
+
+    {{foreach var="$quote.getAllVisibleItems()" template="nsltr:AW Abandoned cart row"}}
+
+    <tr>
+        <th colspan=5 align=left>Rows total: {{var row_item_row_number}}</th>
+        <th colspan=3>
+    <table width=100% cellspacing=0 cellpadding="10" style="background-color:yellow">
+        <tr>
+            <td align="left">Discount:</td>
+            <td align="right">{{var quote.total_discount|formatPrice}}</td>
+        </tr>
+        <tr>
+            <td align="left">Total:</td>
+            <td align="right">{{var quote.grand_total|formatPrice}}</td>
+        </tr>
+    </table>
+</tr>
+</table>
+
+<p>Please come back and take it here: <a href="{{var url_resume}}">Your cart link</a></p>
+{{depend has_coupon}}<p>Your coupon code is: {{var coupon.code}}, expires at {{var coupon.expiration_date}}</p>
+<p>Your coupon code is: {{var coupons.1.code}}, expires at {{var coupons.1.expiration_date}}</p>
+<p>Your coupon code is: {{var coupons.2.code}}, expires at {{var coupons.2.expiration_date}}</p>
+<p>Your coupon code is: {{var coupons.test.code}}, expires at {{var coupons.test.expiration_date}}</p>
+<p>Your coupon code is: {{var coupons.test_alias.code}}, expires at {{var coupons.test_alias.expiration_date}}</p>
+{{/depend}}
+<br>
+{{var related}}
+<br>
+<a href="{{var url_unsubscribe}}">Unsubscribe</a><br>
+<br>
+<br>
+<hr>
+
+<tr>
+  <td>{{var row_item_row_number}}</td>
+  <td><a href="{{store url="catalog/product/view" id="$row_item.product.id"}}">{{var row_item.name}}</a></td>
+  <td align="center"><img src="{{thumbnail size="75" source="row_item.product"}}"/></td>
+  <td>{{var row_item.product.description}}&nbsp;</td>
+  <td>{{var row_item.sku}}</td>
+  <td align="right"><nobr>{{var row_item.priceInclTax|formatPrice}}</nobr></td>
+  <td align="right"><nobr>{{var row_item.qty|formatDecimal}}</nobr></td>
+  <td align="right"><nobr>{{var row_item.row_totalInclTax|formatPrice}}</nobr></td>
+</tr>
+mailto:enteryour@addresshere.com?subject=Terms%20%26%23038%3B%20Conditions&body=Check%20this%20out:%20http://www.sydneyecommerce.com.au/terms-conditions/

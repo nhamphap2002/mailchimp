@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            body{
+                max-width: 768px;
+                margin: 0 auto;
+            }
+            .tvtable h2 {
+                font-size: 20px;
+                line-height: 25px;
+                margin: 10px 0 0;
+            }
+            .tvtablenone table{
+                border-spacing: 0;
+                clear: both;
+                margin: 0;
+                width: 100%;
+            }
+            .tvtablenone table td{
+                background: none;
+                border: none;
+            }
+            .tvheaditem{
+                text-align: center;
+            }
+            .tvitem{
+                color: #92278F;
+                display: inline-block;
+                border-bottom: 1px solid #92278F;
+                border-top: 1px solid #92278F;
+                padding: 15px 50px;
+            }
+            .textcenter{
+                text-align: center;
+            }
+            .fieldset fieldset{
+                border: 1px solid #744cd5;
+                margin-top: 10px;
+            }
+            .fieldset legend{
+                background: #8c6bdd; /* Old browsers */
+                background: -moz-linear-gradient(top,  #8c6bdd 0%, #744cd5 100%); /* FF3.6+ */
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#8c6bdd), color-stop(100%,#744cd5)); /* Chrome,Safari4+ */
+                background: -webkit-linear-gradient(top,  #8c6bdd 0%,#744cd5 100%); /* Chrome10+,Safari5.1+ */
+                background: -o-linear-gradient(top,  #8c6bdd 0%,#744cd5 100%); /* Opera 11.10+ */
+                background: -ms-linear-gradient(top,  #8c6bdd 0%,#744cd5 100%); /* IE10+ */
+                background: linear-gradient(to bottom,  #8c6bdd 0%,#744cd5 100%); /* W3C */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'#8c6bdd\', endColorstr=\'#744cd5\',GradientType=0 ); /* IE6-9 */
+                padding: 10px;
+                border-radius: 5px;
+                box-shadow: 3px 3px 3px #ccc;
+                color: #fff;
+            }
+            .postid-587 .tvitem{
+                color: #4E67C8;
+                display: inline-block;
+                border-bottom: 1px solid #4E67C8;
+                border-top: 1px solid #4E67C8;
+                padding: 15px 50px;
+                width: 80%;
+            }
+            .tvtable table td{
+                border: none;
+                background: none;
+            }
+            .postid-587 .tvtable table td{
+                vertical-align: top;
+                background: #A0DEF9;
+                border-radius: 0 10px 10px 0;
+            }
+            .tvtable table .bgnone td{
+                background: none;
+            }
+
+            .post-coeliac-disease .tvtable table td{
+                vertical-align: top;
+                border-radius: 0 10px 10px 0;
+            }
+            .tvtable table td.tvmiddle {
+                border-radius: 10px 0 0 10px;
+                padding: 10px 0 10px 10px;
+                vertical-align: middle;
+            }
+            .post-macular-degeneration .tvitem{
+                color: #F3A447;
+                display: inline-block;
+                border-bottom: 1px solid #F3A447;
+                border-top: 1px solid #F3A447;
+                padding: 15px 50px;
+                width: 80%;
+            }
+            .tvitalic{
+                font-style: italic;
+                font-size: 13px;
+            }
+            .post-osteoporosis .tvitem{
+                color: #E32D91;
+                display: inline-block;
+                border-bottom: 1px solid #E32D91;
+                border-top: 1px solid #E32D91;
+                padding: 15px 50px;
+                width: 80%;
+            }
+            .tvitalic{
+                font-style: italic;
+                font-size: 13px;
+            }
+            .tvtablelist table{
+                border-spacing: 0;
+            }
+            .tvtablelist table th{
+                font-weight: bold;
+            }
+            .tvtablelist table td,
+            .tvtablelist table th{
+                text-align: left;
+                background: none;
+                border: none;
+            }
+            .tvtablelist table th,
+            .tvtablelist table td{
+                padding: 5px;
+                border-bottom: 1px solid #B7A9ED;
+            }
+            .tvtablelist table td{
+                border-left: 1px solid #B7A9ED;
+            }
+            .tvtablelist table .tvold th,
+            .tvtablelist table .tvold td{
+                background: #E7E2F9;
+            }
+            .post-coeliac-disease .tvitem{
+                color: #4E67C8;
+                display: inline-block;
+                border-bottom: 1px solid #4E67C8;
+                border-top: 1px solid #4E67C8;
+                padding: 15px 50px;
+                width: 75%;
+            }
+            .post-coeliac-disease .tvtable table .bgnone td{
+                border: none;
+            }
+            .post-coeliac-disease .tvtable table td{
+                border: 1px solid #ccc;
+                border-left: none;
+            }
+            .post-coeliac-disease .tvtable table td.tvmiddle{
+                border-right: none;
+                border-left: 1px solid #ccc;
+            }
+            .tvtable table .bgmeat td{
+                background: #A6DFF8;
+            }
+            .tvtable table .bgrisotto td{
+                background: #ABF7E6;
+            }
+            .tvtable table .bgrice td{
+                background: #AAF6BF;
+            }
+            .tvtable table .bgvegetable td{
+                background: #AAF4A4;
+            }
+            .tvtable table .bgsalads td{
+                background: #C7F29F;
+            }
+        </style>
+        <base href="http://pharmacy4less.proj01.dev.fgct.net/"/>
+    </head>
+    <body class=" postid-587">
+        <div class="post-coeliac-disease">
+            <div class="tvheaditem">
+                <p class="tvitem">What is coeliac disease?</p>
+
+            </div>
+            <p>
+                To understand the damage that coeliac disease causes to the small intestine, we must first have a look at what the small intestine does.  The surface of the small intestine is covered with millions of tiny finger-like projections called villi.  Villi increases the surface area of the small intestine to maximise nutrient absorption as food passes through from the stomach.
+            </p>
+            <p>
+                In coeliac disease, your body’s immune system reacts abnormally to gluten, a protein found in wheat, rye, barley and oats.  This can cause damage to the small intestines by causing the villi to become inflamed and flattened.  As a result, the surface area of the intestines decreases, reducing the small intestine’s ability to absorb nutrients efficiently.  This can lead to various gastrointestinal and malabsorptive symptoms.  
+            </p>
+            <div class="textcenter">
+                <a href="http://pharmacy4less.proj01.dev.fgct.net/blog/wp-content/uploads/2015/06/coeliac-disease1.png">
+                    <img class="alignnone size-full wp-image-615" src="http://pharmacy4less.proj01.dev.fgct.net/blog/wp-content/uploads/2015/06/coeliac-disease1.png" alt="coeliac-disease"/>
+                </a>
+                <span class="tvitalic">Figure 1 Images from Coeliac Australia</span>
+            </div>
+            <div class="tvheaditem">
+                <p class="tvitem">Who can get coeliac disease?</p>
+
+            </div>
+            <p>
+                Coeliac disease can affect people of all ages and both genders.  However, it is a genetically linked condition. Whilst only 30% of Australians carry these genes, only 1 in 30 of these people will get coeliac disease.  Environmental factors also play a role in triggering coeliac disease.  
+            </p>
+            <div class="tvheaditem">
+                <p class="tvitem">How common is it?</p>
+            </div>
+            <p>
+                Approximately 1 in 70 Australians are affected by coeliac disease.  However, a large number (approximately 80%) remain undiagnosed.  With improvements in diagnosis, more and more people are being identified and given advice on how to manage their condition.  
+            </p>
+            <div class="tvheaditem">
+                <p class="tvitem">How do I know if I have it or not?</p>
+
+            </div>
+            <p>
+                Symptoms of coeliac disease vary from person to person and symptoms can be similar to those of other medical conditions so it is important to get proper diagnosis from your doctor.  Some people experience only one or multiple symptoms, whilst others experience none at all.  Below are just a few of the more commonly experienced symptoms.  
+            </p>
+            <div class="textcenter">
+                <a href="http://pharmacy4less.proj01.dev.fgct.net/blog/wp-content/uploads/2015/06/coeliac-disease2.png">
+                    <img class="alignnone size-full wp-image-614" src="http://pharmacy4less.proj01.dev.fgct.net/blog/wp-content/uploads/2015/06/coeliac-disease2.png" alt="coeliac-disease"/>
+                </a>
+            </div>
+            <p>
+                If you are concerned about having coeliac disease, speak to your doctor to get proper screening tests before starting a gluten free diet.  It is important not to self-diagnose and start a gluten-free diet before being properly diagnosed by the doctor as the tests depend on a normal gluten intake.
+            </p>
+            <div class="tvheaditem">
+                <p class="tvitem">Is there a cure?</p>
+
+            </div>
+            <p>
+                Currently there are no cures for coeliac disease but it can be managed effectively through a lifelong strict gluten free diet.  The removal of gluten from the diet allows the villi to heal and the symptoms to resolve.  This may be a challenging process so it is important you have a great team of health professions including your doctor, pharmacist and dietician to provide you with the best support.
+            </p>
+            <div class="tvheaditem">
+                <p class="tvitem">What happens if it is left untreated?</p>
+
+            </div>
+            <div class="tvtablenone">
+                Leaving coeliac disease undiagnosed and untreated can lead to:
+                <ul>
+                    <li>
+                        Chronic systemic inflammation
+                    </li>
+                    <li>
+                        Poor nutrition
+                    </li>
+                    <li>
+                        Malabsorption of nutrients
+                    </li>
+                </ul>
+                Systems in the body can be affected include:
+                <table width="100%" style="border-spacing: 0;">
+                    <tr>
+                        <td>
+                            <ul>
+                                <li>
+                                    Endocrine - glands
+                                </li>
+                                <li>
+                                    Joints
+                                </li>
+                                <li>
+                                    Blood
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>
+                                    Gastrointestinal
+
+                                </li>
+                                <li>
+                                    Bone
+                                </li>
+                                <li>
+                                    Liver
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>
+                                    Nervous system
+                                </li>
+                                <li>
+                                    Skin and mouth
+                                </li>
+                                <li>
+                                    reproductive
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="tvheaditem">
+                <p class="tvitem">How do I know if the food I’m buying is gluten free?</p>
+
+            </div>
+            <p>
+                Packaged foods must have an ingredient list printed on the label so check this list when you purchase any products.  Whilst the label will most likely not list ‘gluten’ as an ingredient, look out for ingredients that do contain gluten – wheat, rye, barley and oats.  Legally, all ingredients and food additives derived from wheat, rye, barley or oats must be declared on the ingredient list.  Only foods that are tested and meet the Australian Food Standard of having ‘no detectable gluten’ are labelled “gluten free”.  Below are four categories to help identify gluten-free foods.
+            </p>
+            <div class="textcenter">
+                <a href="http://pharmacy4less.proj01.dev.fgct.net/blog/wp-content/uploads/2015/06/coeliac-disease3.png">
+                    <img class="alignnone size-full wp-image-613" src="http://pharmacy4less.proj01.dev.fgct.net/blog/wp-content/uploads/2015/06/coeliac-disease3.png" alt="coeliac-disease"/>
+                </a>
+                <span class="tvitalic">Figure 2 Ways to identify gluten-free food</span>
+            </div>
+            <div class="tvtablenone">
+                Some unexpected sources of gluten include:
+                <table width="100%" style="border-spacing: 0;">
+                    <tr>
+                        <td>
+                            <ul>
+                                <li>
+                                    Stocks and sauces
+                                </li>
+                                <li>
+                                    Soy milk
+                                </li>
+                                <li>
+                                    Icing sugar, dusting chocolate
+                                </li>
+                                <li>
+                                    Salad dressings
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>
+                                    Chicken salt
+
+                                </li>
+                                <li>
+                                    Dusting/coating flour
+                                </li>
+                                <li>
+                                    Oil that is used for other purposes
+                                </li>
+                            </ul>
+                        </td>
+                </table>
+            </div>
+            <div class="textcenter">
+                <a href="http://pharmacy4less.proj01.dev.fgct.net/blog/wp-content/uploads/2015/06/coeliac-disease4.png">
+                    <img class="alignnone size-full wp-image-613" src="http://pharmacy4less.proj01.dev.fgct.net/blog/wp-content/uploads/2015/06/coeliac-disease4.png" alt="coeliac-disease"/>
+                </a>
+                <span class="tvitalic">Figure 3 Coeliac Australia endorsement logos. Images from Coeliac Australia</span>
+            </div>
+            <div class="tvheaditem">
+                <p class="tvitem">How do I know if the food from restaurants is gluten free?</p>
+
+            </div>
+            <p>
+                Some restaurants offer a gluten-free menu.  If not, always ask them about their gluten-free options. Below are a few examples of questions you may find helpful when dining out.
+            </p>
+
+            <div class="tvtable">
+                <table>
+                    <tbody>
+                        <tr class="bgmeat">
+                            <td class="tvmiddle" width="20%">
+                                <a href="http://pharmacy4less.proj01.dev.fgct.net/blog/wp-content/uploads/2015/06/meat.png">
+                                    <img class="alignnone size-full wp-image-612" src="http://pharmacy4less.proj01.dev.fgct.net/blog/wp-content/uploads/2015/06/meat.png" alt="brain"/>
+                                </a>
+                            </td>
+                            <td width="80%">
+                                <h2>Meat and Fish dishes</h2>
+                                <ul>
+                                    <li>Has the dish been coated in flour or breadcrumbs?</li>
+                                    <li>Was the dish marinated in stock or soy sauce?</li>
+                                    <li>Has corn flour been added?</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr class="bgnone">
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="bgrisotto">
+                            <td class="tvmiddle" width="20%">
+                                <a href="http://pharmacy4less.proj01.dev.fgct.net/blog/wp-content/uploads/2015/06/risotto.png">
+                                    <img class="alignnone size-full wp-image-624" src="http://pharmacy4less.proj01.dev.fgct.net/blog/wp-content/uploads/2015/06/risotto.png" alt="heart"/>
+                                </a>
+                            </td>
+                            <td width="80%">
+                                <h2>Risotto, soup or soup-based meal
+                                </h2>
+                                <ul>
+                                    <li>Does the broth or stock contain any ingredients from wheat, rye, barley or oats?
+                                    </li>
+                                    <li>
+                                        Does it contain any wheat based noodles?
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr class="bgnone">
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="bgrice">
+                            <td class="tvmiddle" width="20%">
+                                <a href="http://pharmacy4less.proj01.dev.fgct.net/blog/wp-content/uploads/2015/06/rice.png">
+                                    <img class="alignnone size-full wp-image-623" src="http://pharmacy4less.proj01.dev.fgct.net/blog/wp-content/uploads/2015/06/rice.png" alt="hair-skin"/>
+                                </a>
+                            </td>
+                            <td width="80%">
+                                <h2>Rice noodles</h2>
+                                <ul>
+                                    <li>Are there only rice noodles included?</li>
+                                    <li>Were they cooked in a gluten free broth or stock?</li>
+                                    <li>Are the sauces gluten free? </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr class="bgnone">
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="bgvegetable">
+                            <td class="tvmiddle" width="20%">
+                                <a href="http://pharmacy4less.proj01.dev.fgct.net/blog/wp-content/uploads/2015/06/vegetable.png">
+                                    <img class="alignnone size-full wp-image-622" src="http://pharmacy4less.proj01.dev.fgct.net/blog/wp-content/uploads/2015/06/vegetable.png" alt="reproduction"/>
+                                </a>
+                            </td>
+                            <td width="80%">
+                                <h2>Vegetable dishes</h2>
+                                <ul>
+                                    <li>
+                                        Have any sauces which contain wheat flour or wheat based cornflour been used?
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr class="bgnone">
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="bgsalads">
+                            <td class="tvmiddle" width="20%">
+                                <a href="http://pharmacy4less.proj01.dev.fgct.net/blog/wp-content/uploads/2015/06/salad.png">
+                                    <img class="alignnone size-full wp-image-621" src="http://pharmacy4less.proj01.dev.fgct.net/blog/wp-content/uploads/2015/06/salad.png" alt="immunesytem"/>
+                                </a>
+                            </td>
+                            <td width="80%">
+                                <h2>Salads</h2>
+                                <ul>
+                                    <li>
+                                        What salad dressing has been used?
+                                    </li>
+                                    <li>
+                                        Does it contain any croutons/noodles/pasta/barley/couscous or other gluten containing grains?
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                You can also find a list of suggested restaurants on the Coeliac Australia website.
+            </p>
+            <div class="tvheaditem">
+                <p class="tvitem">Will my change in diet affect my nutritional intake?</p>
+
+            </div>
+            <p>
+                It is still possible to have a nutritious and balanced diet if you have coeliac disease.  It is also possible to vary your meals by experimenting with the ingredients available to you.  A dietician may provide some suggestions that would suit your individual needs.
+            </p>
+            <div class="textcenter">
+                <a href="http://pharmacy4less.proj01.dev.fgct.net/blog/wp-content/uploads/2015/06/coeliac-disease5.png">
+                    <img class="alignnone size-full wp-image-620" src="http://pharmacy4less.proj01.dev.fgct.net/blog/wp-content/uploads/2015/06/coeliac-disease5.png" alt="coeliac-disease"/>
+                </a>
+            </div>
+            <div class="tvheaditem">
+                <p class="tvitem">Important points</p>
+
+            </div>
+            <p>There are some basic things you can do to help manage your stress such as exercising regularly, eating a healthy diet and doing fun and relaxing activities. There are also some vitamins which can help support your body’s increased demands during stressful periods. Speak to your doctor or pharmacist about what options may suit you. They can also provide you with the support you need to work through your stressful times.</p>
+            <div class="textcenter">
+                <a href="http://pharmacy4less.proj01.dev.fgct.net/blog/wp-content/uploads/2015/06/coeliac-disease6.png">
+                    <img class="alignnone size-full wp-image-618" src="http://pharmacy4less.proj01.dev.fgct.net/blog/wp-content/uploads/2015/06/coeliac-disease6.png" alt="coeliac-disease6"/>
+                </a>
+            </div>
+            <div class="tvheaditem">
+                <p class="tvitem">More information</p>
+
+            </div>
+            <p>
+                Coeliac Australia <a href="http://www.coeliac.org.au/gluten-free/"> http://www.coeliac.org.au/gluten-free/</a>
+                <br>
+                Better Health Channel <a href="http://www.betterhealth.vic.gov.au/bhcv2/bhcarticles.nsf/pages/Coeliac_disease_and_gluten_sensitivity">http://www.betterhealth.vic.gov.au/bhcv2/bhcarticles.nsf/pages/Coeliac_disease_and_gluten_sensitivity</a>
+                <br>
+                Healthdirect Australia <a href="http://www.healthdirect.gov.au/coeliac-disease">http://www.healthdirect.gov.au/coeliac-disease</a>
+
+            </p>
+        </div>
+    </body>
+</html>

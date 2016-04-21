@@ -1,0 +1,75 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 4, 2015, 2:21:57 PM
+    Author     : Tran Trong Thang
+*/
+
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    color: #000;
+    text-decoration: underline;
+}
+a:hover{
+    cursor: pointer;
+}
+@font-face {
+    font-family: 'Futura_medium';
+    src: url('../fonts/FuturaStd-Medium.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+img{
+    max-width: 100%;
+}
+body {
+    font-family: "Futura_medium",futura;
+    font-size: 13px;
+}
+.wrapper{
+    text-align: center;
+}
+.header{
+    padding-top: 10%;
+}
+.text1 {
+    padding-bottom: 30px;
+    padding-top: 5px;
+    font-style: italic;
+}
+.text3,
+.text4 {
+    padding: 10px 0 0 0;
+    font-size: 16px;
+}
+.text5{
+    padding-top: 2.5%;
+}
+.text5 span {
+    font-style: italic;
+}
+.text6 {
+    padding: 1.2% 0 3%;
+
+}
+.text6 button {
+    border: medium none;
+    margin-bottom: 5px;
+    padding: 5px 0;
+    width: 10%;
+    font-family: Futura_medium,futura;
+}
+.text7{
+    padding-bottom: 5px;
+}
+@media(max-width: 768px){
+    .text6 button {
+        width: 100px;
+    }
+}
